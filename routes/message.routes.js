@@ -59,7 +59,7 @@ router.get("/chat/:chatId", isTokenValid, async (req, res, next) => {
     //    await Chat.findById(req.params.chatId)
        
        const chatMessages = await Message.find({chat: req.params.chatId})
-       .populate("user")
+       //.populate("user")
        res.status(200).json({data: chatMessages})
     } catch (error) {
         next(error)
