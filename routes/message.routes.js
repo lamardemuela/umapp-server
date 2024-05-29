@@ -56,10 +56,11 @@ router.get("/chat", isTokenValid, async (req, res, next)=> {
 // GET "api/chat/:chatId" => litar todos los mensajes de un chat
 router.get("/chat/:chatId", isTokenValid, async (req, res, next) => {
     try {
-    //    await Chat.findById(req.params.chatId)
+        //await Chat.findById(req.params.chatId)
        
        const chatMessages = await Message.find({chat: req.params.chatId})
-       //.populate("user")
+       .populate("sender")
+       .populate("receiver")
        res.status(200).json({data: chatMessages})
     } catch (error) {
         next(error)
