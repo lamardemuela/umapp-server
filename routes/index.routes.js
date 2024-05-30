@@ -24,9 +24,13 @@ router.use("/session", sessionRouter)
 const dogRouter = require("./dog.routes")
 router.use("/dog", dogRouter)
 
-// 🔗 Message route
-const messageRouter = require("./message.routes")
-router.use(messageRouter)
+// 🔗 chat route
+const chatRouter = require("./chat.routes")
+router.use(chatRouter)
+
+// 🔗 user route
+const userRouter = require("./user.routes")
+router.use("/user", userRouter)
 
 //* ⤴️ EXPORTS
 module.exports = router;

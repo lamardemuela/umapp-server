@@ -4,6 +4,7 @@ const router = require("express").Router();
 const { isTokenValid, isDogOwner } = require("../middlewares/auth.middleware")
 
 //* 👇🏻 DOG ROUTES
+
 //🔗 POST "/api/dog" => crear un perro
 router.post("/", isTokenValid, isDogOwner, async(req, res, next) => {
     // destructuring
@@ -63,6 +64,7 @@ router.get("/", isTokenValid, async (req, res, next) => {
 router.get("/:dogId", isTokenValid, async (req, res, next) => {
     try {
         const response = await Dog.findById(req.params.dogId)
+        .populate("dogOwner")
         res.status(200).json({data: response})
     } catch (error) {
         next(error)
