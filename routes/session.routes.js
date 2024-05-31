@@ -8,7 +8,7 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
  //🔗 POST "/api/session" => crear una session
  router.post("/", isTokenValid, isDogTrainer, async (req, res, next) => {
     //destructuring
-    const { dogTrainer, dogOwner, dog, day, hour, location, notes } = req.body
+    const { dogOwner, dog, day, hour, location, notes } = req.body
 
     try {
         await Session.create({
@@ -29,7 +29,7 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
  //🔗 PUT "/api/session/:sessionId" => editar una session
  router.put("/:sessionId", isTokenValid, isDogTrainer, async (req, res, next) => {
     //destructuring
-    const { dogTrainer, dogOwner, dog, day, hour, location, notes } = req.body
+    const { dogOwner, dog, day, hour, location, notes } = req.body
 
     try {
         await Session.findByIdAndUpdate(req.params.sessionId, {

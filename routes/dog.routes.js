@@ -64,7 +64,7 @@ router.get("/", isTokenValid, async (req, res, next) => {
 router.get("/:dogId", isTokenValid, async (req, res, next) => {
     try {
         const response = await Dog.findById(req.params.dogId)
-        .populate("dogOwner")
+        .populate("dogOwner", "name telephone email picProfile province town services rates morningSchedule afternoonSchedule afternoonSchedule")
         res.status(200).json({data: response})
     } catch (error) {
         next(error)
