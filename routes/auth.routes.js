@@ -19,7 +19,7 @@ router.post("/signup", async (req, res, next) => {
       .status(400)
       .json({
         errorMessage:
-          "Los campos: nombre, email, contraseña, provincia y ciudad son obligatorios",
+          "Todos los campos son obligatorios para crear una cuenta",
       });
     return;
   }

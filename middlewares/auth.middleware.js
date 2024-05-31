@@ -23,7 +23,7 @@ function isDogTrainer (req, res, next) {
     if(req.payload.role === "dogTrainer"){
         next()
     }else{
-        res.status(400).json({errorMessage: "Sólo tienen acceso los usuarios con el rol de Educador canino"})
+        res.status(400).json({errorMessage: "Este usuario tiene el rol de Educador canino"})
     }
 }
 
@@ -32,7 +32,7 @@ function isDogOwner (req, res, next) {
     if(req.payload.role === "dogOwner"){
         next()
     }else{
-        res.status(400).json({errorMessage: "Sólo tienen acceso los usuarios que BUSCAN un educador canino"})
+        res.status(400).json({errorMessage: "Este usuario tiene el rol de buscador de educadores caninos"})
     }
 }
 
