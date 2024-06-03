@@ -32,5 +32,9 @@ router.use(chatRouter)
 const userRouter = require("./user.routes")
 router.use("/user", userRouter)
 
+// 🔗 cloudinary route
+const uploadRoutes = require("./upload.routes")
+router.use("/upload", uploadRoutes)
+
 //* ⤴️ EXPORTS
 module.exports = router;

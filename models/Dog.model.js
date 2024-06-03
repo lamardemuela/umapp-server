@@ -19,7 +19,7 @@ const dogSchema = new Schema({
         require: [true, 'El campo Raza es obligatorio.']
     },
     age: {
-        type: Number,
+        type: String,
         require: [true, 'El campo Edad es obligatorio.']
     },
     weight: {
