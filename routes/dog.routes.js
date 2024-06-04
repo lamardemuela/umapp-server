@@ -71,6 +71,16 @@ router.get("/:dogId", isTokenValid, async (req, res, next) => {
     }
 })
 
+//🔗 GET "/api/dogOwner/:userId" => perros de un usuario
+router.get("/dogOwner/:dogOwnerId", isTokenValid, async (req, res, next) => {
+    try {
+        const response = await Dog.find( { dogOwner:req.params.dogOwnerId }  )
+        res.status(200).json(response)
+    } catch (error) {
+        next(error)
+    }
+})
+
 //🔗 DELETE "/api/dog/:dogId" => eliminar un perro
 router.delete("/:dogId", isTokenValid, isDogOwner, async (req, res, next) => {
     try {

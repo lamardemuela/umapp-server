@@ -8,8 +8,8 @@ const router = require("express").Router();
 // 🔗 GET "api/user"= => listar todos los usuarios
 router.get("/", async (req, res, next) => {
     try {
-        const response = await User.find()
-        res.status(200).json({data: response})
+        const response = await User.find(req.query)
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }

@@ -29,10 +29,6 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'El campo Provincia es obligatorio.']
     },
-    town: {
-      type: String,
-      required: [true, 'El campo Población es obligatorio.']
-    },
     services: {
       type: [String],
       enum: ["Servicio a domicilio", "Adiestramiento y educación", "Educación temprana", "Corrección de conductas", "Orientación del cachorro", "Obediencia", "Socialización", "Entreamiento con correa", "Entrenamiento en casa", "Ansiedad por separación", "Manejo de la agresión", "Entrenamientos de perros de terapia", "Enrenamiento de perros de servicio", "Manejo de miedos y fobias"]
@@ -40,11 +36,8 @@ const userSchema = new Schema(
     rates: {
       type: Number
     },
-    morningSchedule: {
+    description: {
       type: String
-    },
-    afternoonSchedule: {
-      type: String,
     },
     role: {
       type: String,

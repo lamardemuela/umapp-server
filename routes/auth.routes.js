@@ -9,12 +9,13 @@ const { isTokenValid } = require("../middlewares/auth.middleware")
 
 //🔗 POST "/api/auth/signup" => recibir data del usuario y crearlo en la db
 router.post("/signup", async (req, res, next) => {
+  console.log(req.body)
 
   // destructuring req.body:
-  const { name, telephone, email, password, picProfile, province, town, services, rates, availability, morningSchedule, afternoonSchedule, morningAndAfternoonSchedule, role } = req.body;
+  const { name, telephone, email, password, picProfile, province, services, rates, role } = req.body;
 
   // 1. campos obligatorios
-  if (!name || !email || !password || !province || !town) {
+  if (!name || !email || !password || !province) {
     res
       .status(400)
       .json({
@@ -62,13 +63,8 @@ router.post("/signup", async (req, res, next) => {
       password: hashPassword,
       picProfile: picProfile,
       province: province,
-      town: town,
       services: services,
       rates: rates,
-      availability: availability,
-      morningSchedule: morningSchedule,
-      afternoonSchedule: afternoonSchedule,
-      morningAndAfternoonSchedule: morningAndAfternoonSchedule,
       role: role
     });
     res.sendStatus(201)

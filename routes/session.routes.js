@@ -50,7 +50,8 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
  router.get("/", isTokenValid, async (req, res, next) => {
     try {
         const response = await Session.find()
-        res.status(200).json({data: response})
+        .populate("dog")
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
@@ -61,7 +62,7 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
     try {
         const response = await Session.findById(req.params.sessionId)
         .populate("dog")
-        res.status(200).json({data: response})
+        res.status(200).json(response)
     } catch (error) {
         next(error)
     }
