@@ -51,6 +51,7 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
     try {
         const response = await Session.find()
         .populate("dog")
+        .populate("dogOwner", "name")
         res.status(200).json(response)
     } catch (error) {
         next(error)
