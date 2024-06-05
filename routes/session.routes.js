@@ -50,6 +50,7 @@ const { isTokenValid, isDogTrainer } = require("../middlewares/auth.middleware")
  router.get("/", isTokenValid, async (req, res, next) => {
     try {
         const response = await Session.find()
+        .populate("dogTrainer", "name picProfile")
         .populate("dog")
         .populate("dogOwner", "name")
         res.status(200).json(response)

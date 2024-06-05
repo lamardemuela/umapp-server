@@ -1,12 +1,12 @@
 //* ⤵️ IMPORTS
 const User = require("../models/User.model");
 const router = require("express").Router();
-//todo const { isTokenValid } = require("../middlewares/auth.middleware")
+const { isTokenValid, isDogOwner } = require("../middlewares/auth.middleware")
 
 //* 👇🏻 DOG TRAINER ROUTES
 
 //🔗 GET "/api/dog-trainer" => listar todos los dogTrainers
-router.get("/", async (req, res, next) => {
+router.get("/", isTokenValid, isDogOwner, async (req, res, next) => {
     try {
         const response = await User.find({role: "dogTrainer"})
         res.status(200).json(response)
