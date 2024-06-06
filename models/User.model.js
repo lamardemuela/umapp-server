@@ -22,8 +22,8 @@ const userSchema = new Schema(
       required: [true, 'El campo Contraseña es obligatorio.']
     },
     picProfile: {
-      type: String,
-      default: "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar.png"
+      type: String
+      // default: "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar.png"
     },
     province: {
       type: String,
