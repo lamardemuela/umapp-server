@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
 router.get("/owner", isTokenValid, async (req, res, next) => {
     try {
         const response = await User.findById(req.payload._id)
-        .select({ name: 1, email: 1, picProfile: 1, province: 1, services: 1, rates: 1, role: 1 })
+        .select({ name: 1, email: 1, picProfile: 1, province: 1, services: 1, rates: 1, role: 1, telephone:1 })
         res.status(200).json(response)
     } catch (error) {
         next(error)
@@ -29,7 +29,7 @@ router.get("/owner", isTokenValid, async (req, res, next) => {
 // 🔗 PUT "api/user/owner" => editar info de un usuario
 router.put("/owner", isTokenValid, async (req, res, next) => {
     // destructuring
-    const {name, email, picProfile, province, services, rates } = req.body
+    const {name, email, picProfile, province, services, rates, telephone } = req.body
     try {
         const response = await User.findByIdAndUpdate(req.payload._id, {
             name,
@@ -37,7 +37,8 @@ router.put("/owner", isTokenValid, async (req, res, next) => {
             picProfile,
             province,
             services,
-            rates
+            rates,
+            telephone
         })
         res.sendStatus(201)
     } catch (error) {
