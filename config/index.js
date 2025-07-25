@@ -36,18 +36,16 @@ module.exports = (app) => {
   app.use(
     cors({
       origin: function (origin, callback) {
-        // Permitir llamadas sin origin (como Postman)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-          return callback(null, true);
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
         } else {
-          return callback(new Error("Not allowed by CORS"));
+          console.log("Blocked by CORS:", origin);
+          callback(new Error("Not allowed by CORS"));
         }
       },
       credentials: true,
     })
   );
-  
 
   // In development environment the app logs
   app.use(logger("dev"));
