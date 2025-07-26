@@ -1,7 +1,6 @@
 # umapp
 
-## [See the App!]([https://umapp.netlify.app/](https://umapp-server-production.up.railway.app)
-
+## [See the app!](https://umapp-server-production.up.railway.app/)
 ![App Logo](/src/assets/umapp-logo.png)
 
 ## Description
