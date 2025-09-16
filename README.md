@@ -129,7 +129,9 @@ Session model
 
 [Repository Link Server](https://github.com/lamardemuela/umapp-server)
 
-[Deploy Link](https://umapp-server.onrender.com)
+[Server Deploy Link](https://umapp-server.onrender.com)
+
+[Client Deploy Link](https://umapp.netlify.app/)
 
 ### Slides
 
